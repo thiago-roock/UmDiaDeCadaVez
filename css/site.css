@@ -78,15 +78,68 @@ a.navbar-brand {
     font-family: 'Handwriting Regular';
   }
   .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    margin-top: 1%;
+    line-height: 60px;  /*Vertically center the text there */
+    font-family: 'Azonix Regular';
+    font-size: 12px;
   }
 
-  #rodape{
-    font-family: 'Azonix Regular';
+  #redesocial{
+    text-decoration: none;
+    padding: 2px;
+  }
 
+  .switch {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
   }
   
+  .switch + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+  }
+
+/* Estilo Flat */
+.switch--flat + label {
+  padding: 1px;
+  width: 90px;
+  height: 30px;
+  background-color: #dddddd;
+  border-radius: 30px;
+  transition: background 0.4s;
+}
+.switch--flat + label:before,
+.switch--flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+.switch--flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  border-radius: 30px;
+  transition: background 0.4s;
+}
+.switch--flat + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 28px;
+  background-color: #dddddd;
+  border-radius: 26px;
+  transition: margin 0.4s, background 0.4s;
+}
+.switch--flat:checked + label {
+  background-color: #8ce196;
+}
+.switch--flat:checked + label:after {
+  margin-left: 55px;
+  background-color: #8ce196;
+}
