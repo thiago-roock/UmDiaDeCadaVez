@@ -21,11 +21,30 @@ $(window).on("load", function(){
         
           var dataTotalDias = new Date().getFullYear();
 
-         var date1 = new Date(dataMaisUmDia+"/01/01");
+        var date1 = new Date(dataMaisUmDia+"/01/01");
         var date2 = new Date(dataTotalDias+"/01/01");
         var timeDiff = Math.abs(date2.getTime() - date1.getTime());
         var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-        $('#totalDias').text(diffDays);
+
+        var bissexto = false;
+        if(dataTotalDias % 400 == 0)
+        {
+          bissexto = true;
+        }
+        else if(dataTotalDias%4==0 && dataTotalDias%100!=0)
+        {
+          bissexto = true;
+        }
+        var totalDias = 0;
+        if(bissexto)
+        {
+          totalDias = diffDays + 1;
+        }else
+        {
+          totalDias = diffDays;
+        }
+        
+        $('#totalDias').text(totalDias);
  });
 
 
