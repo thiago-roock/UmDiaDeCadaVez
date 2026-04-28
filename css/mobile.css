@@ -1,133 +1,122 @@
 /* ================================
-   MOBILE (até 768px)
+   MOBILE BASE (REAL 🔥)
 ================================ */
-@media (max-width: 768px) {
 
-  /* ================================
-     TOPBAR
-  ================================= */
-  .topbar {
-    padding: 10px 12px;
-    font-size: 11px;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-  .topbar .center {
-    position: static;
-    transform: none;
-    order: 3;
-    width: 100%;
-    text-align: center;
-    margin-top: 6px;
-  }
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 90dvh;
+}
 
-  .topbar {
-    flex-wrap: wrap;
-  }
+/* ================================
+   TOPBAR
+================================ */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 
-  /* ================================
-     CONTAINER
-  ================================= */
-  .container {
-    padding: 16px 12px;
-    justify-content: center;
-  }
+  padding: 10px 12px;
+  font-size: 11px;
+  font-family: var(--font-ui);
+  gap: 6px;
+}
 
-  /* ================================
-     HERO
-  ================================= */
-  .hero .big {
-    font-size: clamp(36px, 12vw, 56px);
-  }
+.topbar .left,
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-  .hero .medium {
-    font-size: clamp(22px, 7vw, 36px);
-  }
+.topbar .center {
+  order: 3;
+  width: 100%;
+  text-align: center;
+  opacity: 0.8;
+}
 
-  .title {
-    font-size: 22px;
-  }
+/* ================================
+   MAIN
+================================ */
+.container {
+  flex: 1;
 
-  .subtitle {
-    font-size: 13px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  /* ================================
-     PROGRESS
-  ================================= */
-  .progress {
-    max-width: 100%;
-    margin-top: 20px;
-  }
+  justify-content: center;
+  text-align: center;
 
-  #progress-text {
-    font-size: 11px;
-  }
+  padding: 16px 12px;
+}
 
-  /* ================================
-     FRASE / SHARE
-  ================================= */
-  .share-inline {
-    font-size: 13px;
-    gap: 4px;
-  }
+/* ================================
+   HERO
+================================ */
+.hero .big {
+  font-size: clamp(36px, 12vw, 56px);
+}
 
-  .share-inline svg {
-    width: 14px;
-    height: 14px;
-  }
+.hero .medium {
+  font-size: clamp(22px, 7vw, 36px);
+  opacity: 0.7;
+}
 
-  /* ================================
-     FOOTER
-  ================================= */
-  .footer {
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px 12px;
-    text-align: center;
-  }
+/* ================================
+   TEXTOS
+================================ */
+.title {
+  margin-top: 10px;
+  font-size: 22px;
+  text-decoration: underline;
+}
 
-  .footer-left {
-    order: 2;
-  }
+.subtitle {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.7;
+}
 
-  .footer-right {
-    order: 1;
-  }
+.hint {
+  margin: 10px 0;
+  font-size: 12px;
+  opacity: 0.6;
+}
 
-  .footer-right p {
-    font-size: 11px;
-  }
+/* ================================
+   PROGRESS
+================================ */
+.progress {
+  width: 100%;
+  margin-top: 20px;
+}
 
-  /* ================================
-     LOGO
-  ================================= */
-  .logo {
-    width: 60px;
-    height: 32px;
-  }
+/* ================================
+   FOOTER
+================================ */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  /* ================================
-     SWITCH
-  ================================= */
-  .switch + label {
-    width: 42px;
-    height: 22px;
-  }
+  gap: 6px;
+  padding: 10px 12px;
 
-  .switch + label::after {
-    width: 18px;
-    height: 18px;
-  }
+  font-size: 11px;
+  font-family: var(--font-ui);
+  color: var(--muted);
+  opacity: 0.6;
+}
 
-  /* ================================
-     ESPAÇAMENTO GLOBAL
-  ================================= */
-  .hint {
-    font-size: 12px;
-  }
-
-  /* evita “aperto visual” */
-  body {
-    line-height: 1.4;
-  }
+.footer-left {
+  display: flex;
+  gap: 12px;
 }

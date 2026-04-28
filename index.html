@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Um dia de cada vez">
-    <meta name="keywords" content="um dia de cada vez, uma remada de cada vez, depressão, ansiedade">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./images/icon-192.png" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Um dia de cada vez</title>
-    <meta name="pagename" content="Um dia de cada vez" />
-    <meta name="url" content="https://thiago-roock.github.io/UmDiaDeCadaVez/" />
-    <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="Um dia de cada vez" />
-    <meta itemprop="description" content="O que é o melhor que você pode fazer hoje?" />
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://thiago-roock.github.io/UmDiaDeCadaVez/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Um dia de cada vez" />
-    <meta property="og:description" content="O que é o melhor que você pode fazer hoje?" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:locale" content="pt_br" />
-    <meta property="og:site_name" content="Um dia de cada vez" />
-    <meta property="og:image" content="https://thiago-roock.github.io/UmDiaDeCadaVez/images/og-image.png" />    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Um dia de cada vez" />
-    <meta name="twitter:description" content="O que é o melhor que você pode fazer hoje?" />
-    <meta name="twitter:image:src" content="https://thiago-roock.github.io/UmDiaDeCadaVez/images/og-image.png" />
-    <meta name="twitter:site" content="Um dia de cada vez" />
-    <meta name="twitter:creator" content="Um dia de cada vez" />
+  <!-- ================================
+       META BASE
+  ================================= -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <link rel="manifest" href="./manifest.json" />
-  <link rel="stylesheet" href="./css/site.css" />
-<link rel="stylesheet" href="./css/mobile.css" />
-  
+  <!-- 🔥 MOBILE FIRST REAL -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Um dia de cada vez</title>
+
+  <!-- ================================
+       SEO
+  ================================= -->
+  <meta name="description" content="Um lembrete simples: um dia de cada vez.">
+  <meta name="keywords" content="um dia de cada vez, ansiedade, depressão, constância, rotina, foco">
+  <meta name="author" content="Thiago D.">
+  <meta name="url" content="https://thiago-roock.github.io/UmDiaDeCadaVez/">
+
+  <!-- ================================
+       GOOGLE / STRUCTURED
+  ================================= -->
+  <meta itemprop="name" content="Um dia de cada vez">
+  <meta itemprop="description" content="O que é o melhor que você pode fazer hoje?">
+  <meta itemprop="image" content="https://thiago-roock.github.io/UmDiaDeCadaVez/images/og-image.png">
+
+  <!-- ================================
+       OPEN GRAPH (FACEBOOK / WHATSAPP)
+  ================================= -->
+  <meta property="og:url" content="https://thiago-roock.github.io/UmDiaDeCadaVez/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Um dia de cada vez">
+  <meta property="og:description" content="O que é o melhor que você pode fazer hoje?">
+  <meta property="og:image" content="https://thiago-roock.github.io/UmDiaDeCadaVez/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Um dia de cada vez">
+
+  <!-- ================================
+       TWITTER
+  ================================= -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Um dia de cada vez">
+  <meta name="twitter:description" content="O que é o melhor que você pode fazer hoje?">
+  <meta name="twitter:image" content="https://thiago-roock.github.io/UmDiaDeCadaVez/images/og-image.png">
+
+  <!-- ================================
+       PWA
+  ================================= -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- ================================
+       IOS PWA (🔥 IMPORTANTE)
+  ================================= -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="1Dia">
+
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+
+  <!-- ================================
+       ICONES
+  ================================= -->
+  <link rel="icon" type="image/png" href="/images/icon-192.png">
+
+  <!-- ================================
+       CSS (ORDEM IMPORTA 🔥)
+  ================================= -->
+  <link rel="stylesheet" href="/css/estilos.css">
+  <link rel="stylesheet" href="/css/mobile.css">
+  <link rel="stylesheet" href="/css/site.css">
+
 </head>
 
 <body id="corpo">
 <div id="capture" class="app">
 <header class="topbar">
-
   <div class="left">
-
     <!-- LOGO -->
     <a href="/" class="logo-link">
         <img src="./images/icone.png" alt="1D" class="logo">
     </a>
-
   </div>
-
   <div id="data-hoje-captura" class="center">
     <p id="data-hoje"></p>
   </div>
-
   <div id="toggleModoEscuro" class="right">
     <span class="label">Modo escuro</span>
     <input id="switch-flat" class="switch" type="checkbox">
     <label for="switch-flat"></label>
   </div>
-
 </header>
 
 <main class="container">
@@ -130,7 +165,7 @@
   </div>
 
 </footer>
-</div>
+
 
 <!-- Scripts -->
 <script defer src="./js/progresso.js"></script>
@@ -139,8 +174,7 @@
 <script defer src="./js/heatmap.js"></script>
 <script defer src="./js/gerarImagem.js"></script>
 <script defer src="./js/darkMode.js"></script>
-<script defer src="./js/pwa.js"></script>
 <script defer src="./js/site.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </body>
 </html>
