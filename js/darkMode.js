@@ -1,40 +1,52 @@
-// pegamos o valor no localStorage
-const nightModeStorage = localStorage.getItem('modoDarkStorage')
-const nightMode = document.querySelector('#switch-flat')
+// ================================
+// ELEMENTOS
+// ================================
+const switchDark = document.getElementById("switch-flat");
+const root = document.documentElement;
 
-// pega o valor do meta tag
-const metaThemeColor = document.querySelector('meta[name=theme-color]')
+// ================================
+// INIT
+// ================================
+function initDarkMode() {
+  const saved = localStorage.getItem("modoDarkStorage");
 
-// caso tenha o valor no localStorage
-if (nightModeStorage) {
-  // ativa o night mode
-  document.documentElement.classList.add('night-mode')
-  jQuery("#corpo").addClass("bg-dark text-light");
-  jQuery("#rodapeT").removeClass("text-dark");
+  if (saved !== null) {
+    // preferência do usuário
+    const isDark = saved === "true";
+    root.classList.toggle("night-mode", isDark);
+    switchDark.checked = isDark;
+  } else {
+    // fallback: preferência do sistema
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  // já deixa o input marcado como ativo
-  nightMode.checked = true
+    root.classList.toggle("night-mode", prefersDark);
+    switchDark.checked = prefersDark;
+  }
 }
 
-// ao clicar mudaremos as cores
-nightMode.addEventListener('click', () => {
-  // adiciona a classe `night-mode` ao html
-  document.documentElement.classList.toggle('night-mode')
+window.matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", e => {
+    if (!localStorage.getItem("modoDarkStorage")) {
+      root.classList.toggle("night-mode", e.matches);
+      switchDark.checked = e.matches;
+    }
+  });
 
-  // se tiver a classe night-mode
-  if (document.documentElement.classList.contains('night-mode')) {
-    // salva o tema no localStorage
-    jQuery("#corpo").addClass("bg-dark text-light");
-    jQuery("#rodapeT").removeClass("text-dark");
+// ================================
+// TOGGLE
+// ================================
+function toggleDarkMode() {
+  const isDark = root.classList.toggle("night-mode");
 
-    localStorage.setItem('modoDarkStorage', true)
+  localStorage.setItem("modoDarkStorage", isDark);
+}
 
-    return
-  }
-  // senão remove
-        jQuery("#corpo").removeClass("bg-dark text-light");
-        jQuery("#rodapeT").addClass("text-dark");
-        jQuery(".modoDark").show();
-        jQuery(".modoWhite").hide();
-        localStorage.removeItem('modoDarkStorage')
-})
+// ================================
+// EVENT
+// ================================
+switchDark.addEventListener("change", toggleDarkMode);
+
+// ================================
+// START
+// ================================
+initDarkMode();

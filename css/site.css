@@ -1,148 +1,466 @@
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-  }
-  
-  /* Provide sufficient contrast against white background */
-  a {
-    color: #0366d6;
-  }
-  
-  .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-  }
-  
-  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-  }
-  
-  /* Sticky footer styles
-  -------------------------------------------------- */
-  html {
-    font-size: 14px;
-  }
-  @media (min-width: 768px) {
-    html {
-      font-size: 16px;
-    }
-  }
-
-  @font-face {
-    font-family: 'Azonix Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Azonix Regular'), url('Azonix.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Handwriting Regular';
-      font-style: normal;
-      font-weight: normal;
-      src: local('Handwriting Regular'), url('Handwriting.woff') format('woff');
-      }
-  
-  .border-top {
-    border-top: 1px solid #e5e5e5;
-  }
-  .border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-  }
-  
-  .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-  }
-  
-  button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-  }
-  
-  /* Sticky footer styles
-  -------------------------------------------------- */
-  html {
-    position: relative;
-    min-height: 100%;
-  }
-  
-  body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-    font-family: 'Handwriting Regular';
-  }
-  .footer {
-    margin-top: 1%;
-    line-height: 60px;  /*Vertically center the text there */
-    font-family: 'Azonix Regular';
-    font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-
-  #redesocial{
-    text-decoration: none;
-    padding: 2px;
-  }
-
-  .switch {
-    position: absolute;
-    margin-left: -9999px;
-    visibility: hidden;
-  }
-  
-  .switch + label {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    outline: none;
-    user-select: none;
-  }
-
-/* Estilo Flat */
-.switch--flat + label {
-  padding: 1px;
-  width: 90px;
-  height: 30px;
-  background-color: #dddddd;
-  border-radius: 30px;
-  transition: background 0.4s;
+/* ================================
+   FONTES (mantidas)
+================================ */
+@font-face {
+  font-family: 'Azonix Regular';
+  src: url('./Azonix.woff') format('woff');
+  font-display: swap;
 }
-.switch--flat + label:before,
-.switch--flat + label:after {
-  display: block;
+
+@font-face {
+  font-family: 'Handwriting Regular';
+  src: url('./Handwriting.woff') format('woff');
+  font-display: swap;
+}
+
+/* ================================
+   TOKENS
+================================ */
+:root {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+
+  --primary: #22c55e;
+  --accent: #4ade80;
+
+  --font-main: 'Handwriting Regular', sans-serif;
+  --font-display: 'Azonix Regular', sans-serif;
+  --font-ui: 'Inter', sans-serif;
+}
+
+/* ================================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   TOPBAR
+================================ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  font-size: 12px;
+  font-family: var(--font-ui);
+}
+
+.topbar .left,
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar .center {
   position: absolute;
-  content: "";
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.7;
 }
-.switch--flat + label:before {
+
+/* ================================
+   MAIN
+================================ */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ================================
+   HERO
+================================ */
+.hero .big {
+  font-size: clamp(48px, 8vw, 72px);
+}
+
+.hero .medium {
+  font-size: clamp(32px, 6vw, 48px);
+  opacity: 0.7;
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+.subtitle {
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+/* ================================
+   HINT
+================================ */
+.hint {
+  margin: 10px 0;
+  opacity: 0.6;
+}
+
+.arrow {
+  margin-left: 5px;
+  color: #ef4444;
+}
+
+/* ================================
+   PROGRESS
+================================ */
+.progress {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 30px;
+}
+
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  transition: width 0.6s ease;
+}
+
+#progress-text {
+  font-size: 12px;
+  opacity: 0.6;
+  display: block;
+  margin-top: 5px;
+  font-family: var(--font-ui);
+}
+
+/* ================================
+   FRASE
+================================ */
+.share-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background: transparent;
+  border: none;
+
+  color: var(--muted);
+  font-size: 14px;
+  font-family: var(--font-main);
+
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+}
+
+/* frase */
+.share-inline .frase {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ícone */
+.share-inline svg {
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+/* hover */
+.share-inline:hover {
+  color: var(--primary);
+  background: rgba(255,255,255,0.03);
+}
+
+.share-inline:hover svg {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* click */
+.share-inline:active {
+  transform: scale(0.98);
+}
+
+/* ================================
+   FOOTER
+================================ */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 6px 16px;
+  font-size: 12px;
+  font-family: var(--font-ui);
+  color: var(--muted);
+
+  backdrop-filter: blur(6px);
+}
+
+/* ================================
+   LEFT / RIGHT
+================================ */
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ícones (lado esquerdo) */
+.footer-left {
+  gap: 12px;
+}
+
+/* texto (lado direito) */
+.footer-right p {
+  margin: 0;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+/* ================================
+   LINK
+================================ */
+.footer-right a {
+  color: var(--primary);
+  text-decoration: none;
+  margin-left: 4px;
+
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* underline animado */
+.footer-right a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: var(--primary);
+  transition: width 0.2s ease;
+}
+
+.footer-right a:hover::after {
+  width: 100%;
+}
+
+.footer-right a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+/* ================================
+   SWITCH
+================================ */
+.switch {
+  display: none;
+}
+
+.switch + label {
+  width: 50px;
+  height: 24px;
+  background: #ddd;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.switch + label::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: white;
+  position: absolute;
   top: 2px;
   left: 2px;
-  bottom: 2px;
-  right: 2px;
-  background-color: #fff;
-  border-radius: 30px;
-  transition: background 0.4s;
+  border-radius: 50%;
+  transition: 0.3s;
 }
-.switch--flat + label:after {
-  top: 4px;
-  left: 4px;
-  bottom: 4px;
-  width: 28px;
-  background-color: #dddddd;
-  border-radius: 26px;
-  transition: margin 0.4s, background 0.4s;
+
+.switch:checked + label {
+  background: var(--primary);
 }
-.switch--flat:checked + label {
-  background-color: #8ce196;
+
+.switch:checked + label::after {
+  left: 26px;
 }
-.switch--flat:checked + label:after {
-  margin-left: 55px;
-  background-color: #8ce196;
+
+/* ================================
+   ANIMAÇÃO
+================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(5px);
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   BASE
+================================ */
+.icon {
+  --icon-color: var(--text);
+
+  color: var(--icon-color);
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.icon:hover {
+  opacity: 1;
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* ================================
+   TEMA (fallback apenas)
+================================ */
+:root:not(.night-mode) .icon {
+  --icon-color: #334155;
+}
+
+.night-mode .icon {
+  --icon-color: #cbd5f5;
+}
+
+/* ================================
+   INSTAGRAM (override limpo)
+================================ */
+.icon.instagram {
+  --icon-color: #e11d48;
+}
+
+.icon.instagram:hover {
+  --icon-color: #e11d48;
+}
+
+/* ================================
+   GITHUB (override limpo)
+================================ */
+.icon.github {
+  --icon-color: #7c3aed;
+}
+
+.icon.github:hover {
+  --icon-color: #7c3aed;
+}
+
+.logo {
+  width: 75px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+
+
+/* ================================
+   DARKMODE
+================================ */
+
+/* DARK MODE */
+.night-mode {
+  --bg: #212529;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+}
+
+/* LIGHT MODE (quando NÃO tem night-mode) */
+:root:not(.night-mode) {
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+}
+
+.btn-share {
+  margin-top: 12px;
+  padding: 6px 14px;
+
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-family: var(--font-ui);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-share:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ================================
+   FIX SCROLL (SEM QUEBRAR LAYOUT)
+================================ */
+body {
+  height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* garante que nada estoure lateral */
+main, .container {
+  max-width: 100%;
+}
+
+/* reduz um pouco o empilhamento */
+.container {
+  padding: 10px;
+}
+
+.progress {
+  margin-top: 15px;
+}
+
+.share-inline {
+  margin-top: 10px;
+}
+
+/* evita estourar vertical */
+.hero .big {
+  font-size: clamp(42px, 7vw, 68px);
+}
+
+.hidden-capture {
+  visibility: hidden !important;
 }

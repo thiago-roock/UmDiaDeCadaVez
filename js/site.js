@@ -1,42 +1,52 @@
-$(window).on("load", function(){
-    var dataMaisUmDia = new Date().getFullYear()-1;
-        $('#MaisUmDia').countdown(dataMaisUmDia+"/12/31", {elapse: true})
-        .on('update.countdown', function(event) {
-        var $this = $(this);
-        if (event.elapsed) {
-            $this.html(event.strftime('Mais um dia: <mark><span>%-D</span></mark>'));
-        } else {
-            $this.html(event.strftime('Mais um dia: <mark><span>%-D</span></mark>'));
-        }
-        });
+// ================================
+// DATA BASE
+// ================================
+function calcularDiasAno() {
+  const hoje = new Date();
+  const ano = hoje.getFullYear();
 
-        var dataMenosUmDia = new Date().getFullYear()+1;
+  const inicio = new Date(ano, 0, 1);
+  const fim = new Date(ano, 11, 31);
 
-          $("#MenosUmDia")
-          .countdown(dataMenosUmDia+"/01/01", function (event) {
-            $(this).html(
-              event.strftime('Menos um dia: <del><span>%-D</span></del>')
-            );
-          });
-        
-        var ano = new Date().getFullYear();
-        var bissexto = false;
-        
-        if(ano / 4 == 0 && ano / 100 != 0 || ano / 400 == 0 )
-        {
-          bissexto = true;
-        }
-  
-        var totalDias = 0;
+  const total = Math.ceil((fim - inicio) / 86400000) + 1;
+  const atual = Math.ceil((hoje - inicio) / 86400000) + 1;
+  const restante = total - atual;
 
-        if(bissexto)
-        {
-          totalDias = 366;
-        }
-        else
-        {
-          totalDias = 365;
-        }
-        
-        $('#totalDias').text(totalDias);
- });
+  return { atual, restante, total, ano };
+}
+
+// ================================
+// RENDER PRINCIPAL
+// ================================
+function renderDias() {
+  const { atual, restante } = calcularDiasAno();
+
+  document.getElementById("MaisUmDia").innerHTML =
+    `Mais um dia: <mark><span class="animar">${atual}</span></mark>`;
+
+  document.getElementById("MenosUmDia").innerHTML =
+    `Menos um dia: <del><span class="animar">${restante}</span></del>`;
+}
+
+// ================================
+// INIT
+// ================================
+document.addEventListener("DOMContentLoaded", () => {
+  const { total, ano } = calcularDiasAno();
+
+  // Dias
+  renderDias();
+
+  // Total
+  document.getElementById("totalDias").innerText = total;
+
+  // Ano
+  document.getElementById("ano").innerText = ano;
+  document.getElementById("ano-footer").innerText = ano;
+
+  // Módulos
+  renderProgresso?.();
+  renderFrase?.();
+  renderData?.();
+  registrarAcesso?.();
+});

@@ -1,0 +1,133 @@
+/* ================================
+   MOBILE (até 768px)
+================================ */
+@media (max-width: 768px) {
+
+  /* ================================
+     TOPBAR
+  ================================= */
+  .topbar {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .topbar .center {
+    position: static;
+    transform: none;
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  /* ================================
+     CONTAINER
+  ================================= */
+  .container {
+    padding: 16px 12px;
+    justify-content: center;
+  }
+
+  /* ================================
+     HERO
+  ================================= */
+  .hero .big {
+    font-size: clamp(36px, 12vw, 56px);
+  }
+
+  .hero .medium {
+    font-size: clamp(22px, 7vw, 36px);
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  /* ================================
+     PROGRESS
+  ================================= */
+  .progress {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  #progress-text {
+    font-size: 11px;
+  }
+
+  /* ================================
+     FRASE / SHARE
+  ================================= */
+  .share-inline {
+    font-size: 13px;
+    gap: 4px;
+  }
+
+  .share-inline svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* ================================
+     FOOTER
+  ================================= */
+  .footer {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .footer-left {
+    order: 2;
+  }
+
+  .footer-right {
+    order: 1;
+  }
+
+  .footer-right p {
+    font-size: 11px;
+  }
+
+  /* ================================
+     LOGO
+  ================================= */
+  .logo {
+    width: 60px;
+    height: 32px;
+  }
+
+  /* ================================
+     SWITCH
+  ================================= */
+  .switch + label {
+    width: 42px;
+    height: 22px;
+  }
+
+  .switch + label::after {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ================================
+     ESPAÇAMENTO GLOBAL
+  ================================= */
+  .hint {
+    font-size: 12px;
+  }
+
+  /* evita “aperto visual” */
+  body {
+    line-height: 1.4;
+  }
+}
