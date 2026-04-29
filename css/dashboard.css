@@ -1,0 +1,252 @@
+/* ================================
+   DASHBOARD
+================================ */
+.dashboard {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dash-header h2 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+#streak {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  background: rgba(255,255,255,0.06);
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: var(--muted);
+}
+
+/* ================================
+   TABS
+================================ */
+.tabs {
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 13px;
+
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab.active {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+/* ================================
+   VIEWS
+================================ */
+.view {
+  display: none;
+  animation: fadeIn 0.25s ease;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   WEEK GRID
+================================ */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.day {
+  height: 46px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.04);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+
+  transition: all 0.25s ease;
+}
+
+.day.active {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #052e16;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(34,197,94,0.25);
+}
+
+/* ================================
+   MONTH GRID (heatmap)
+================================ */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.cell {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 6px;
+
+  background: rgba(255,255,255,0.04);
+
+  transition: all 0.2s ease;
+}
+
+.cell.active {
+  background: var(--primary);
+  box-shadow: 0 0 6px rgba(34,197,94,0.25);
+}
+
+/* ================================
+   STATS
+================================ */
+.stats {
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ================================
+   HOVER MICROINTERACTIONS
+================================ */
+.day:hover,
+.cell:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ================================
+   TOPBAR (harmonizar com dashboard)
+================================ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 20px;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* central date */
+#data-hoje {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* toggle */
+#toggleModoEscuro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ================================
+   DASHBOARD SPACING FIX
+================================ */
+.dashboard {
+  max-width: 420px;
+  margin: 20px auto 40px; /* reduz espaço do topo */
+  padding: 0 20px 20px;
+}
+
+/* header mais colado no topo */
+.dash-header {
+  margin-bottom: 20px;
+}
+
+/* ================================
+   VISUAL HIERARCHY FIX
+================================ */
+.dash-header h2 {
+  opacity: 0.9;
+}
+
+#streak {
+  background: rgba(34,197,94,0.12);
+  color: var(--primary);
+}
+
+/* ================================
+   YEAR GRID
+================================ */
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.month-box {
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--muted);
+
+  transition: all 0.25s ease;
+}
+
+.month-box.active {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #052e16;
+  font-weight: 600;
+}

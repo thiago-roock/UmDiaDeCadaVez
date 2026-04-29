@@ -220,3 +220,60 @@ body {
 .share-inline:active {
   transform: scale(0.98);
 }
+
+/* ================================
+   HABIT COLLAPSE
+================================ */
+.habit {
+  margin-top: 20px;
+}
+
+/* header */
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* lado direito */
+.habit-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* seta */
+.habit-arrow {
+  transition: transform 0.3s ease;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* conteúdo */
+.habit-content {
+  overflow: hidden;
+  max-height: 200px;
+  transition: all 0.3s ease;
+}
+
+/* fechado */
+.habit.collapsed .habit-content {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* anima seta */
+.habit.collapsed .habit-arrow {
+  transform: rotate(-90deg);
+}
+
+/* grid mantém espaçamento */
+.habit-grid {
+  margin-top: 12px;
+}

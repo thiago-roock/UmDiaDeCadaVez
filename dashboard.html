@@ -72,91 +72,123 @@
        CSS (ORDEM IMPORTA 🔥)
   ================================= -->
   <link rel="stylesheet" href="./css/estilos.css">
-  <link rel="stylesheet" href="./css/mobile.css">
-  <link rel="stylesheet" href="./css/site.css">
-  <link rel="stylesheet" href="./css/habito.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
 
+  <style>
+  /* ================================
+   FOOTER (clean + elegante)
+================================ */
+.footer {
+  max-width: 420px;
+  margin: 60px auto 30px; /* 👈 respiro correto */
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* ícones */
+.footer-left {
+  display: flex;
+  gap: 14px;
+}
+
+/* texto */
+.footer-right {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* link */
+.footer-right a {
+  color: var(--primary);
+}
+
+/* hover */
+.footer .icon {
+  opacity: 0.6;
+}
+
+.footer .icon:hover {
+  opacity: 1;
+}
+  </style>
 </head>
 
-<body id="corpo">
-<div id="capture" class="app">
-<header class="topbar">
-  <div class="left">
-    <!-- LOGO -->
-    <a href="./" class="logo-link">
+<body>
+
+  <!-- HEADER GLOBAL -->
+  <header class="topbar">
+    <div class="left">
+      <a href="./" class="logo-link">
         <img src="./images/icone.png" alt="1D" class="logo">
-    </a>
-  </div>
-  <div id="data-hoje-captura" class="center">
-    <p id="data-hoje"></p>
-  </div>
-  <div id="toggleModoEscuro" class="right">
-     <!-- DASHBOARD -->
-  <a href="./dashboard.html" class="icon dashboard" title="Dashboard">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ui-checks-grid" viewBox="0 0 16 16">
-  <path d="M2 10h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1m9-9h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 9a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zm0-10a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM2 9a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zm7 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2zM0 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.354.854a.5.5 0 1 0-.708-.708L3 3.793l-.646-.647a.5.5 0 1 0-.708.708l1 1a.5.5 0 0 0 .708 0z"/>
-</svg>
-  </a>
-    <span class="label">Modo escuro</span>
-    <input id="switch-flat" class="switch" type="checkbox">
-    <label for="switch-flat"></label>
-  </div>
-</header>
-
-<main class="container">
-
-  <section class="hero">
-
-    <h1 class="big" id="MaisUmDia"></h1>
-    <h2 class="medium" id="MenosUmDia"></h2>
-
-    <div class="hint">
-      <em>Viu?</em>
-      <span class="arrow">↓</span>
+      </a>
     </div>
 
-    <h2 class="title">Um dia de cada vez</h2>
-
-    <p class="subtitle">
-      até completar os <b id="totalDias"></b> dias de <span id="ano"></span> 🙂
-    </p>
-
-  </section>
-
-  <section class="progress">
-    <div class="progress-container">
-      <div id="progress-bar"></div>
+    <div id="data-hoje-captura" class="center">
+      <p id="data-hoje"></p>
     </div>
-    <span id="progress-text"></span>
-  </section>
 
-<div class="habit collapsed" id="habit">
-
-  <div class="habit-header" id="habit-toggle">
-    <span>Rotina semanal</span>
-    <div class="habit-right">
-      <span id="habit-percent">0%</span>
-      <span class="habit-arrow">▾</span>
+    <div id="toggleModoEscuro" class="right">
+      <span class="label">Modo escuro</span>
+      <input id="switch-flat" class="switch" type="checkbox">
+      <label for="switch-flat"></label>
     </div>
-  </div>
+  </header>
 
-  <div class="habit-content">
-    <div class="habit-grid" id="habit-grid"></div>
-  </div>
+  <!-- CONTEÚDO -->
+  <main class="dashboard">
 
-</div>
-<button class="share-inline" onclick="compartilhar()">
-  <span id="frase" class="frase"></span>
+    <div class="dash-header">
+      <h2 id="titulo-dashboard">Sua constância</h2>
+      <span id="streak">🔥 0 dias</span>
+    </div>
 
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
-  </svg>
-</button>
-</div>
-</main>
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" data-tab="week">Semanal</button>
+      <button class="tab" data-tab="month">Mensal</button>
+    <button class="tab" data-tab="year">Anual</button>
+    </div>
 
-<footer class="footer">
+    <!-- WEEK -->
+    <div id="week-view" class="view active">
+      <div class="week-grid" id="week-grid"></div>
+
+      <div class="stats">
+        <span id="week-percent">0%</span>
+        <span id="week-days">0/7 dias</span>
+      </div>
+    </div>
+
+    <!-- MONTH -->
+    <div id="month-view" class="view">
+      <div class="month-grid" id="month-grid"></div>
+
+      <div class="stats">
+        <span id="month-percent">0%</span>
+        <span id="month-total">0 dias ativos</span>
+      </div>
+    </div>
+
+    <!-- YEAR -->
+    <div id="year-view" class="view">
+      <div class="year-grid" id="year-grid"></div>
+
+      <div class="stats">
+        <span id="year-percent">0%</span>
+        <span id="year-total">0 dias ativos</span>
+      </div>
+    </div>
+
+
+  </main>
+       <footer class="footer">
 
   <div class="footer-left">
     <!-- REDES -->
@@ -188,18 +220,8 @@
   </div>
 
 </footer>
-
-
-<!-- Scripts -->
-<script defer src="./js/progresso.js"></script>
-<script defer src="./js/frases.js"></script>
-<script defer src="./js/data.js"></script>
-<script defer src="./js/heatmap.js"></script>
-<script defer src="./js/gerarImagem.js"></script>
-<script defer src="./js/darkMode.js"></script>
-<script defer src="./js/site.js"></script>
-<script defer src="./js/habito.js"></script>
-
-<script async src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+ 
+ <script defer src="./js/darkMode.js"></script>
+ <script defer src="./js/dashboard.js"></script>
 </body>
 </html>
